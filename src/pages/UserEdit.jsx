@@ -4,13 +4,18 @@ import { UserContext } from "../context/UserContext";
 const UserEdit = () => {
   const [email, setEmail] = useState("");
   const [job, setJob] = useState("Developer");
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleFormEvent = (e) => {
     e.preventDefault();
     setUser({ email, job });
     alert("ข้อมูลบันทึกสำเร็จ !");
   };
+
+  useEffect(() => {
+    setEmail(user.email);
+    setJob(user.job);
+  }, [user]);
 
   return (
     <form
