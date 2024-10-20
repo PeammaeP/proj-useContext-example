@@ -1,8 +1,8 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+
 const UserProfile = () => {
-  const user = {
-    email: "test@mail.com",
-    job: "Developer",
-  };
+  const { user } = useContext(UserContext);
 
   return (
     <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
